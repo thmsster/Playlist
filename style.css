@@ -1,0 +1,321 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(90deg, #ffe6f2 0%, #ffd1dc 100%);
+    color: #333;
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 1);
+    overflow: hidden;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 182, 193, 0.3);
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+    color: #d81b60;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.control-panel {
+    background: linear-gradient(90deg, #fff5f7 0%, #ffeef2 100%);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 1);
+    border: 1px solid #ffccd5;
+}
+
+.input-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #e91e63;
+    font-size: 1.1rem;
+}
+
+#interval {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ffb6c1;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#interval:focus {
+    outline: none;
+    border-color: #ff4081;
+    box-shadow: 0 0 10px rgba(255, 64, 129, 0.3);
+}
+
+#interval.error {
+    border-color: #ff5252;
+    background-color: #fff5f5;
+    box-shadow: 0 0 10px rgba(255, 82, 82, 0.3);
+}
+
+.error-message {
+    color: #ff5252;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    min-height: 20px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.btn {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 200px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-start {
+    background: linear-gradient(135deg, #ff4081, #e91e63);
+}
+
+.btn-start:not(:disabled):hover {
+    background: linear-gradient(135deg, #e91e63, #c2185b);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 15px rgba(233, 30, 99, 0.3);
+}
+
+.btn:not(:disabled) {
+    background: linear-gradient(135deg, #ff80ab, #f06292);
+}
+
+.btn:not(:disabled):hover {
+    background: linear-gradient(135deg, #f06292, #e91e63);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 15px rgba(255, 128, 171, 0.3);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: linear-gradient(135deg, #ffccdc, #ffb6c1);
+    color: #999;
+}
+
+.status {
+    background: rgba(255, 228, 225, 0.5);
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid #ffccd5;
+}
+
+.status p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+#statusText {
+    color: #e91e63;
+    font-weight: 600;
+}
+
+#timerText {
+    color: #ff4081;
+    font-weight: 600;
+}
+
+.player-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 900px) {
+    .player-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+.now-playing, .playlist {
+    background: linear-gradient(135deg, #fff5f7 0%, #ffeef2 100%);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
+    border: 1px solid #ffccd5;
+}
+
+.now-playing h2, .playlist h2 {
+    color: #d81b60;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.song-info {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.album-art {
+   width: 110px;
+    height: 110px;
+    background: linear-gradient(135deg, #ffccdc, #ffb6c1);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    color: #e91e63;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+    animation: rotate 20s linear infinite;
+    animation-play-state: paused;
+    border: 3px solid #ff4081;
+}
+
+.album-art.playing {
+    animation-play-state: running;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.song-details h3 {
+    font-size: 1.8rem;
+    color: #c2185b;
+    margin-bottom: 10px;
+}
+
+.song-details p {
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.song-time-left {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #ff4081;
+    font-weight: 600;
+}
+
+.playlist ul {
+    list-style-type: none;
+}
+
+.playlist li {
+    padding: 15px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.playlist li:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateX(5px);
+}
+
+.playlist li.playing {
+    border-left-color: #ff4081;
+    background: rgba(255, 64, 129, 0.1);
+}
+
+.playlist li .song-name {
+    font-weight: 600;
+    color: #333;
+}
+
+.playlist li .song-artist {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.playlist li .song-duration {
+    color: #e91e63;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+footer {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 2px solid rgba(255, 182, 193, 0.3);
+    color: #888;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin-bottom: 5px;
+}
+
+.btn-disabled-permanent {
+    background: linear-gradient(135deg, #c8e6c9, #a5d6a7) !important;
+    color: #2e7d32 !important;
+    cursor: default !important;
+}
+
+.btn-disabled-permanent:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}

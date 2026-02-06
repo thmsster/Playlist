@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Плеер саундтреков из фильмов и сериалов</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Плеер саундтреков из фильмов и сериалов</h1>
+            <p class="subtitle">Введи интервал от 1 до 60 секунд и наслаждайся музыкой!</p>
+        </header>
+
+        <main>
+            <section class="control-panel">
+                <div class="input-group">
+                    <label for="interval">
+                        Интервал между песнями (1-60 секунд):
+                    </label>
+                    <input type="text" id="interval" placeholder="Введи число от 1 до 60" required>
+                    <div class="error-message" id="intervalError"></div>
+                </div>
+
+                <div class="buttons">
+                    <button id="startBtn" class="btn btn-start" disabled>
+                        ▶️ Начать воспроизведение
+                    </button>
+                    <button id="restartBtn" class="btn" disabled>
+                        🔄 Начать заново
+                    </button>
+                    <button id="stopBtn" class="btn" disabled>
+                        ⏸️ Остановить
+                    </button>
+                    <button id="nextBtn" class="btn" disabled>
+                        ⏭️ Следующая песня
+                    </button>
+                    <button id="resumeBtn" class="btn" disabled>
+                        ▶️ Продолжить
+                    </button>
+                </div>
+
+                <div class="status">
+                    <p id="statusText">Статус: Загрузка каталога песен...</p>
+                    <p id="timerText">Следующая песня через: --</p>
+                </div>
+            </section>
+
+            <section class="player-section">
+                <div class="now-playing">
+                    <h2>🎧 Сейчас играет:</h2>
+                    <div class="song-info">
+                        <div id="albumArt" class="album-art">
+                            💿
+                        </div>
+                        <div class="song-details">
+                            <h3 id="songTitle">Название песни</h3>
+                            <p id="songArtist">Исполнитель</p>
+                            <p id="songDuration">Длительность: 0:00</p>
+                            <p id="songTimeLeft" class="song-time-left">Осталось: --</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="playlist">
+                    <h2>📋 Плейлист (10 треков)</h2>
+                    <ul id="playlist"></ul>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Плеер саундтреков из фильмов и сериалов</p>
+            <p>Слушайте с удовольствием! 🎶</p>
+        </footer>
+    </div>
+
+    <audio id="audioPlayer" preload="metadata"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
